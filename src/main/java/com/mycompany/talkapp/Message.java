@@ -7,6 +7,7 @@ package com.mycompany.talkapp;
 import java.io.FileWriter;
 import java.io.IOException;
 
+
 /**
  *
  * @author kopok
@@ -117,5 +118,20 @@ public class Message {
         } catch (IOException e) {
             return "Error storing message: " + e.getMessage();
         }
+    }
+    
+    // Check the message length
+    public String checkMessageLength() {
+        if (message == null || message.trim().isEmpty()) {
+            return "Please enter a message.";
+        }
+
+        if (message.length() > 250) {
+            return "Message exceeds 250 characters by "
+                    + (message.length() - 250)
+                    + ", please reduce size.";
+        }
+
+        return "Message ready to send.";
     }
 }
