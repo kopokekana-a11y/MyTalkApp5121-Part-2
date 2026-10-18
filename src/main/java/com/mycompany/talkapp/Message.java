@@ -96,4 +96,24 @@ public class Message {
                 .replace("\r", "\\r")
                 .replace("\t", "\\t");
     }
+    
+    // Store the message in a JSON file
+    public String storeMessage() {
+        try (FileWriter writer =
+                new FileWriter("messages.json", true)) {
+
+            writer.write("{"
+                    + "\"messageID\":\"" + escapeJson(messageID) + "\","
+                    + "\"messageHash\":\"" + escapeJson(
+                        messageHash == null ? "" : messageHash) + "\","
+                    + "\"recipient\":\"" + escapeJson(recipient) + "\","
+                    + "\"message\":\"" + escapeJson(message) + "\""
+                    + "}\n");
+
+            return "Message successfully stored.";
+
+        } catch (IOException e) {
+            return "Error storing message: " + e.getMessage();
+        }
+    }
 }
