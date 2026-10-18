@@ -4,6 +4,9 @@
  */
 package com.mycompany.talkapp;
 
+import java.io.FileWriter;
+import java.io.IOException;
+
 /**
  *
  * @author kopok
@@ -99,8 +102,7 @@ public class Message {
     
     // Store the message in a JSON file
     public String storeMessage() {
-        try (FileWriter writer =
-                new FileWriter("messages.json", true)) {
+        try (FileWriter writer = new FileWriter("messages.json", true)) {
 
             writer.write("{"
                     + "\"messageID\":\"" + escapeJson(messageID) + "\","
