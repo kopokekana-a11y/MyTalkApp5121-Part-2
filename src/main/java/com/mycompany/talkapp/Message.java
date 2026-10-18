@@ -57,4 +57,22 @@ public class Message {
 
         return messageHash;
     }
+    
+    // Allow the user to send, discard, or store a message
+    public String SentMessage(int choice) {
+
+        switch (choice) {
+            case 1:
+                return "Message successfully sent.";
+
+            case 2:
+                return "Press 0 to delete the message.";
+
+            case 3:
+                return "Message successfully stored.";
+
+            default:
+                return "Invalid option. Please select 1, 2, or 3.";
+        }
+    }
 }
