@@ -9,5 +9,18 @@ package com.mycompany.talkapp;
  * @author kopok
  */
 public class Message {
-    
+     private String messageID;
+    private int numMessagesSent;
+    private String recipient;
+    private String message;
+    private String messageHash;
+
+    // Constructor
+    public Message(String messageID, int numMessagesSent,
+                   String recipient, String message) {
+        this.messageID = messageID;
+        this.numMessagesSent = numMessagesSent;
+        this.recipient = recipient;
+        this.message = message;
+    }
 }
