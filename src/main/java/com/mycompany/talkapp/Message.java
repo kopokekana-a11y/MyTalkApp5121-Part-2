@@ -23,4 +23,21 @@ public class Message {
         this.recipient = recipient;
         this.message = message;
     }
+    
+    // Check that the message ID is no more than 10 characters
+    public boolean checkMessageID() {
+        return messageID != null && messageID.length() <= 10;
+    }
+
+    // Check that the recipient's cell number is correctly formatted
+    public boolean checkRecipientCell() {
+        if (recipient == null || !recipient.startsWith("+")) {
+            return false;
+        }
+
+        String numberWithoutCode = recipient.substring(1);
+
+        return numberWithoutCode.matches("\\d+")
+                && numberWithoutCode.length() <= 12;
+    }
 }
