@@ -6,6 +6,7 @@ package com.mycompany.talkapp;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.concurrent.ThreadLocalRandom;
 
 
 /**
@@ -133,5 +134,13 @@ public class Message {
         }
 
         return "Message ready to send.";
+    }
+    
+     // Generate a random ten-digit message ID
+    public static String generateMessageID() {
+        return String.valueOf(
+            ThreadLocalRandom.current()
+                .nextLong(1_000_000_000L, 10_000_000_000L)
+        );
     }
 }
