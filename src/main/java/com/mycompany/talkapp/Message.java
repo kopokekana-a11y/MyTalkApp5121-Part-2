@@ -40,4 +40,21 @@ public class Message {
         return numberWithoutCode.matches("\\d+")
                 && numberWithoutCode.length() <= 12;
     }
+    
+    // Create a hash for the message
+    public String createMessageHash() {
+
+        String firstTwoDigits = messageID.substring(0, 2);
+
+        String[] words = message.trim().split("\\s+");
+
+        String firstWord = words[0];
+        String lastWord = words[words.length - 1];
+
+        messageHash = (firstTwoDigits + ":"
+                + numMessagesSent + ":"
+                + firstWord + lastWord).toUpperCase();
+
+        return messageHash;
+    }
 }
