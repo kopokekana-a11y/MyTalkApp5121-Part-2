@@ -87,4 +87,13 @@ public class Message {
     public int returnTotalMessages() {
         return numMessagesSent;
     }
+    
+    // Escape special characters for JSON storage
+    private String escapeJson(String value) {
+        return value.replace("\\", "\\\\")
+                .replace("\"", "\\\"")
+                .replace("\n", "\\n")
+                .replace("\r", "\\r")
+                .replace("\t", "\\t");
+    }
 }
