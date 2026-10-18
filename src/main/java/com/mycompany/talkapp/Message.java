@@ -82,4 +82,9 @@ public class Message {
                 + "\nRecipient: " + recipient
                 + "\nMessage: " + message;
     }
+    
+     // Return the total number of messages sent
+    public int returnTotalMessages() {
+        return numMessagesSent;
+    }
 }
