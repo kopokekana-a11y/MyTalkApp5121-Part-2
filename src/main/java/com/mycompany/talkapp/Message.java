@@ -74,4 +74,12 @@ public class Message {
             return "Invalid option. Please select 1, 2, or 3.";
         }
     }
+    
+     // Return the details of a message
+    public String printMessages() {
+        return "Message ID: " + messageID
+                + "\nMessage Hash: " + messageHash
+                + "\nRecipient: " + recipient
+                + "\nMessage: " + message;
+    }
 }
