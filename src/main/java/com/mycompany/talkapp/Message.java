@@ -36,15 +36,14 @@ public class Message {
 
     // Check that the recipient's cell number is correctly formatted
     public boolean checkRecipientCell() {
-        if (recipient == null || !recipient.startsWith("+")) {
-            return false;
-        }
-
-        String numberWithoutCode = recipient.substring(1);
-
-        return numberWithoutCode.matches("\\d+")
-                && numberWithoutCode.length() <= 12;
+    if (recipient == null || !recipient.startsWith("+27")) {
+        return false;
     }
+
+    String numberWithoutCode = recipient.substring(1);
+
+    return numberWithoutCode.matches("\\d{1,10}");
+}
     
     // Create a hash for the message
     public String createMessageHash() {
