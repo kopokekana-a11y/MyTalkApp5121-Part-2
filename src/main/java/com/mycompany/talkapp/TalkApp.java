@@ -53,7 +53,7 @@ public class TalkApp {
 
             if (loginStatus) {
 
-                System.out.println("\nWelcome to QuickChat.");
+                System.out.println("\nWelcome to TalkApp.");
 
                 boolean running = true;
                 int totalMessagesSent = 0;

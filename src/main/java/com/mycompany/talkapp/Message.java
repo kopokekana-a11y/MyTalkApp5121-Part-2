@@ -42,7 +42,7 @@ public class Message {
 
     String numberWithoutCode = recipient.substring(1);
 
-    return numberWithoutCode.matches("\\d{1,10}");
+    return numberWithoutCode.matches("\\d{1,12}");
 }
     
     // Create a hash for the message
