@@ -44,4 +44,21 @@ public class MessageTest {
         assertFalse(invalidMessage.checkRecipientCell());
     }
     
+    @Test
+    public void testCheckMessageLength() {
+        Message validMessage = new Message(
+                "1234567890", 1, "+2781234567", "Hello world");
+
+        Message invalidMessage = new Message(
+                "1234567890", 1, "+2781234567", "A".repeat(251));
+
+        assertEquals(
+                "Message ready to send.",
+                validMessage.checkMessageLength());
+
+        assertTrue(
+                invalidMessage.checkMessageLength()
+                        .contains("exceeds 250 characters"));
+    }
+    
 }
