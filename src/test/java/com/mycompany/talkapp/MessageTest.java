@@ -24,4 +24,12 @@ public class MessageTest {
         assertTrue(messageID.matches("\\d{10}"));
     }
     
+     @Test
+    public void testCheckMessageID() {
+        Message validMessage = new Message(
+                "1234567890", 1, "+2781234567", "Hello world");
+
+        assertTrue(validMessage.checkMessageID());
+    }
+    
 }
