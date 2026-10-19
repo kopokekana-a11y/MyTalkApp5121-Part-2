@@ -61,4 +61,13 @@ public class MessageTest {
                         .contains("exceeds 250 characters"));
     }
     
+    @Test
+    public void testCreateMessageHash() {
+        Message message = new Message(
+                "1234567890", 1, "+2781234567", "hello world");
+
+        assertEquals("12:1:HELLOWORLD",
+                message.createMessageHash());
+    }
+    
 }
