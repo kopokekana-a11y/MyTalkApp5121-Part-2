@@ -70,4 +70,21 @@ public class MessageTest {
                 message.createMessageHash());
     }
     
+    @Test
+    public void testSentMessage() {
+        Message message = new Message(
+                "1234567890", 1, "+2781234567", "Hello world");
+
+        assertEquals(
+                "Message successfully sent.",
+                message.SentMessage(1));
+
+        assertEquals(
+                "Press 0 to delete the message.",
+                message.SentMessage(2));
+
+        assertEquals(
+                "Message successfully stored.",
+                message.SentMessage(3));
+    }
 }
