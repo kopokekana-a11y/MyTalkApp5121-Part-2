@@ -32,4 +32,16 @@ public class MessageTest {
         assertTrue(validMessage.checkMessageID());
     }
     
+     @Test
+    public void testCheckRecipientCell() {
+        Message validMessage = new Message(
+                "1234567890", 1, "+2781234567", "Hello world");
+
+        Message invalidMessage = new Message(
+                "1234567890", 1, "2781234567", "Hello world");
+
+        assertTrue(validMessage.checkRecipientCell());
+        assertFalse(invalidMessage.checkRecipientCell());
+    }
+    
 }
