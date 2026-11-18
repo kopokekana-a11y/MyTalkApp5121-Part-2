@@ -42,4 +42,70 @@ public class MessageManager {
         hashCount = 0;
         idCount = 0;
     }
+    
+    
+    // Adds a message to the sent messages array
+    public boolean addSentMessage(Message message) {
+
+        if (message == null || sentCount >= sentMessages.length
+                || hashCount >= messageHashes.length
+                || idCount >= messageIDs.length) {
+            return false;
+        }
+
+        addMessageDetails(message);
+        sentMessages[sentCount] = message;
+        sentCount++;
+
+        return true;
+    }
+
+    // Adds a message to the disregarded messages array
+    public boolean addDisregardedMessage(Message message) {
+
+        if (message == null || disregardedCount >= disregardedMessages.length
+                || hashCount >= messageHashes.length
+                || idCount >= messageIDs.length) {
+            return false;
+        }
+
+        addMessageDetails(message);
+        disregardedMessages[disregardedCount] = message;
+        disregardedCount++;
+
+        return true;
+    }
+
+    // Adds a message to the stored messages array
+    public boolean addStoredMessage(Message message) {
+
+        if (message == null || storedCount >= storedMessages.length
+                || hashCount >= messageHashes.length
+                || idCount >= messageIDs.length) {
+            return false;
+        }
+
+        addMessageDetails(message);
+        storedMessages[storedCount] = message;
+        storedCount++;
+
+        return true;
+    }
+
+    // Saves the message ID and hash in their respective arrays
+    private void addMessageDetails(Message message) {
+
+        String hash = message.getMessageHash();
+
+        if (hash == null || hash.isEmpty()) {
+            hash = message.createMessageHash();
+        }
+
+        messageHashes[hashCount] = hash;
+        messageIDs[idCount] = message.getMessageID();
+
+        hashCount++;
+        idCount++;
+    }
+
 }
