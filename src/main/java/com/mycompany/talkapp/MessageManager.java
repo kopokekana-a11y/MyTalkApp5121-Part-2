@@ -262,5 +262,39 @@ public class MessageManager {
 
         return "Message ID not found.";
     }
+    
+    
+    // Searches sent and stored messages by recipient number
+    public String searchMessagesByRecipient(String recipient) {
+
+        String results = "";
+        boolean found = false;
+
+        // Search through sent messages
+        for (int i = 0; i < sentCount; i++) {
+
+            if (sentMessages[i].getRecipient().equals(recipient)) {
+
+                results += sentMessages[i].printMessages() + "\n";
+                found = true;
+            }
+        }
+
+        // Search through stored messages
+        for (int i = 0; i < storedCount; i++) {
+
+            if (storedMessages[i].getRecipient().equals(recipient)) {
+
+                results += storedMessages[i].printMessages() + "\n";
+                found = true;
+            }
+        }
+
+        if (!found) {
+            return "No messages found for recipient: " + recipient;
+        }
+
+        return results;
+    }
 
 }
