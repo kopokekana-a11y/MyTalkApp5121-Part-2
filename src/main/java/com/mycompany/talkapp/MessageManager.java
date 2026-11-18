@@ -212,7 +212,34 @@ public class MessageManager {
             System.out.println("----------------------");
         }
     }
+    
+    
+    // Finds and returns the longest stored message
+    public String getLongestStoredMessage() {
 
+        if (storedCount == 0) {
+            return "No stored messages available.";
+        }
 
+        Message longestMessage = storedMessages[0];
 
+        for (int i = 1; i < storedCount; i++) {
+
+            if (storedMessages[i].getMessage().length()
+                    > longestMessage.getMessage().length()) {
+
+                longestMessage = storedMessages[i];
+            }
+        }
+
+        return longestMessage.getMessage();
+    }
+
+    // Displays the longest stored message
+    public void displayLongestStoredMessage() {
+
+        System.out.println("\n--- LONGEST STORED MESSAGE ---");
+
+        System.out.println(getLongestStoredMessage());
+    }
 }
