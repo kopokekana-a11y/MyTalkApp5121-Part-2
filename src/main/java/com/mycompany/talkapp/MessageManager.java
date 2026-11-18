@@ -344,4 +344,31 @@ public class MessageManager {
 
         return "Message hash not found.";
     }
+    
+    
+    // Generates a report of all sent messages
+    public String displayMessageReport() {
+
+        if (sentCount == 0) {
+            return "No sent messages available.";
+        }
+
+        String report = "--- SENT MESSAGE REPORT ---\n";
+
+        for (int i = 0; i < sentCount; i++) {
+
+            report += "\nMessage Hash: "
+                    + sentMessages[i].getMessageHash();
+
+            report += "\nRecipient: "
+                    + sentMessages[i].getRecipient();
+
+            report += "\nMessage: "
+                    + sentMessages[i].getMessage();
+
+            report += "\n--------------------------\n";
+        }
+
+        return report;
+    }
 }
