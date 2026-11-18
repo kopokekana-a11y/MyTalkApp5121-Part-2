@@ -107,5 +107,62 @@ public class MessageManager {
         hashCount++;
         idCount++;
     }
+    
+    
+    // Populates the arrays with the official assignment test data
+    public void populateTestData() {
+
+        // Test Message 1 - Sent
+        Message message1 = new Message(
+                "Test Message 1",
+                1,
+                "+27834557896",
+                "Did you get the cake?"
+        );
+        message1.createMessageHash();
+        addSentMessage(message1);
+
+        // Test Message 2 - Stored
+        Message message2 = new Message(
+                "Test Message 2",
+                2,
+                "+27838884567",
+                "Where are you? You are late! I have asked you to be on time."
+        );
+        message2.createMessageHash();
+        addStoredMessage(message2);
+
+        // Test Message 3 - Disregarded
+        Message message3 = new Message(
+                "Test Message 3",
+                3,
+                "+27834484567",
+                "Yohhoooo, I am at your gate."
+        );
+        message3.createMessageHash();
+        addDisregardedMessage(message3);
+
+        // Test Message 4 - Sent
+        // The assignment lists this number under Developer.
+        Message message4 = new Message(
+                "Test Message 4",
+                4,
+                "0838884567",
+                "It is dinner time !"
+        );
+        message4.createMessageHash();
+        addSentMessage(message4);
+
+        // Test Message 5 - Stored
+        Message message5 = new Message(
+                "Test Message 5",
+                5,
+                "+27838884567",
+                "Ok, I am leaving without you."
+        );
+        message5.createMessageHash();
+        addStoredMessage(message5);
+    }
+
 
 }
