@@ -296,5 +296,52 @@ public class MessageManager {
 
         return results;
     }
+    
+        // Deletes a stored message using its message hash
+    public String deleteStoredMessage(String searchHash) {
 
+        for (int i = 0; i < storedCount; i++) {
+
+            if (storedMessages[i].getMessageHash().equals(searchHash)) {
+
+                String deletedMessage =
+                        storedMessages[i].getMessage();
+
+                String deletedID =
+                        storedMessages[i].getMessageID();
+
+                // Remove the message from the stored array
+                for (int j = i; j < storedCount - 1; j++) {
+                    storedMessages[j] = storedMessages[j + 1];
+                }
+
+                storedMessages[storedCount - 1] = null;
+                storedCount--;
+
+                // Remove the matching hash and ID
+                for (int j = 0; j < hashCount; j++) {
+
+                    if (messageHashes[j].equals(searchHash)) {
+
+                        for (int k = j; k < hashCount - 1; k++) {
+                            messageHashes[k] = messageHashes[k + 1];
+                            messageIDs[k] = messageIDs[k + 1];
+                        }
+
+                        messageHashes[hashCount - 1] = null;
+                        messageIDs[idCount - 1] = null;
+
+                        hashCount--;
+                        idCount--;
+                        break;
+                    }
+                }
+
+                return "Message \"" + deletedMessage
+                        + "\" successfully deleted.";
+            }
+        }
+
+        return "Message hash not found.";
+    }
 }
