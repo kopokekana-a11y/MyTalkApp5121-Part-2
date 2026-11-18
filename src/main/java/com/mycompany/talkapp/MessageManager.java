@@ -242,4 +242,25 @@ public class MessageManager {
 
         System.out.println(getLongestStoredMessage());
     }
+    
+    
+    // Searches for a stored message using its message ID
+    public String searchStoredMessageByID(String searchID) {
+
+        for (int i = 0; i < storedCount; i++) {
+
+            if (storedMessages[i].getMessageID().equals(searchID)) {
+
+                return "Message ID: "
+                        + storedMessages[i].getMessageID()
+                        + "\nRecipient: "
+                        + storedMessages[i].getRecipient()
+                        + "\nMessage: "
+                        + storedMessages[i].getMessage();
+            }
+        }
+
+        return "Message ID not found.";
+    }
+
 }
