@@ -378,4 +378,47 @@ public class MessageManager {
 
         return report;
     }
+    
+    
+    // Reads stored messages from the JSON file
+    public int loadStoredMessagesFromJSON() {
+
+        Gson gson = new Gson();
+        int loadedCount = 0;
+
+        try (BufferedReader reader =
+                new BufferedReader(new FileReader("messages.json"))) {
+
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+
+                if (line.trim().isEmpty()) {
+                    continue;
+                }
+
+                Message message = gson.fromJson(line, Message.class);
+
+                if (message != null) {
+
+                    if (addStoredMessage(message)) {
+                        loadedCount++;
+                    } else {
+                        System.out.println(
+                                "Array is full. Some messages could not be loaded."
+                        );
+                        break;
+                    }
+                }
+            }
+
+        } catch (IOException e) {
+
+            System.out.println(
+                    "Error reading messages.json: " + e.getMessage()
+            );
+        }
+
+        return loadedCount;
+    }
 }
