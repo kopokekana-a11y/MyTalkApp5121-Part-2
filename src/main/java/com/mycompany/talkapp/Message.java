@@ -142,4 +142,26 @@ public class Message {
                 .nextLong(1_000_000_000L, 10_000_000_000L)
         );
     }
+    
+    
+    // Returns the message ID
+    public String getMessageID() {
+        return messageID;
+    }
+
+    // Returns the message hash
+    public String getMessageHash() {
+        return messageHash;
+    }
+
+    // Returns the recipient number
+    public String getRecipient() {
+        return recipient;
+    }
+
+    // Returns the message content
+    public String getMessage() {
+        return message;
+    }
+
 }
