@@ -163,6 +163,56 @@ public class MessageManager {
         message5.createMessageHash();
         addStoredMessage(message5);
     }
+    
+    
+    // Displays all sent messages
+    public void displaySentMessages() {
+
+        System.out.println("\n--- SENT MESSAGES ---");
+
+        if (sentCount == 0) {
+            System.out.println("No sent messages available.");
+            return;
+        }
+
+        for (int i = 0; i < sentCount; i++) {
+            System.out.println(sentMessages[i].printMessages());
+            System.out.println("----------------------");
+        }
+    }
+
+    // Displays all stored messages
+    public void displayStoredMessages() {
+
+        System.out.println("\n--- STORED MESSAGES ---");
+
+        if (storedCount == 0) {
+            System.out.println("No stored messages available.");
+            return;
+        }
+
+        for (int i = 0; i < storedCount; i++) {
+            System.out.println(storedMessages[i].printMessages());
+            System.out.println("----------------------");
+        }
+    }
+
+    // Displays all disregarded messages
+    public void displayDisregardedMessages() {
+
+        System.out.println("\n--- DISREGARDED MESSAGES ---");
+
+        if (disregardedCount == 0) {
+            System.out.println("No disregarded messages available.");
+            return;
+        }
+
+        for (int i = 0; i < disregardedCount; i++) {
+            System.out.println(disregardedMessages[i].printMessages());
+            System.out.println("----------------------");
+        }
+    }
+
 
 
 }
