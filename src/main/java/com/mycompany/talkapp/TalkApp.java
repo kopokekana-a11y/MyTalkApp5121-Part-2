@@ -220,7 +220,7 @@ public class TalkApp {
                     System.out.println("5) Delete stored message by hash");
                     System.out.println("6) Display message report");
                     System.out.println("7) Return to main menu");
-                    System.out.println("8) Return to main menu");
+                  
 
                     System.out.print("Choose an option: ");
 
