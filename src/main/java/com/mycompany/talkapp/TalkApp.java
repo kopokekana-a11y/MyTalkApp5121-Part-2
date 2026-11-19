@@ -197,7 +197,9 @@ public class TalkApp {
 
                     } else if (option.equals("2")) {
 
-                        System.out.println("Coming Soon");
+                        System.out.println("\\n--- SENT MESSAGES ---");
+                        
+                         messageManager.displaySentMessages();
 
                     } else if (option.equals("3")) {
 
