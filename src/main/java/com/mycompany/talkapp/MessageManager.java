@@ -55,9 +55,7 @@ public class MessageManager {
     // Adds a message to the sent messages array
     public boolean addSentMessage(Message message) {
 
-        if (message == null || sentCount >= sentMessages.length
-                || hashCount >= messageHashes.length
-                || idCount >= messageIDs.length) {
+        if (message == null) {
             return false;
         }
         
@@ -73,9 +71,7 @@ public class MessageManager {
     // Adds a message to the disregarded messages array
     public boolean addDisregardedMessage(Message message) {
 
-        if (message == null || disregardedCount >= disregardedMessages.length
-                || hashCount >= messageHashes.length
-                || idCount >= messageIDs.length) {
+        if (message == null) {
             return false;
         }
         
@@ -91,9 +87,7 @@ public class MessageManager {
     // Adds a message to the stored messages array
     public boolean addStoredMessage(Message message) {
 
-        if (message == null || storedCount >= storedMessages.length
-                || hashCount >= messageHashes.length
-                || idCount >= messageIDs.length) {
+        if (message == null) {
             return false;
         }
         
