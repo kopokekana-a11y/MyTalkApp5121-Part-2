@@ -201,24 +201,72 @@ public class TalkApp {
                         
                          messageManager.displaySentMessages();
 
-                    } else if (option.equals("3")) {
+                    }  else if (option.equals("3")) {
 
-                       System.out.println("\n--- STORED MESSAGES ---");
+                        boolean storedMenuRunning = true;
+
+                        while (storedMenuRunning) {
+
+                    System.out.println("\n--- STORED MESSAGES MENU ---");
+                    System.out.println("1) Display stored messages");
+                    System.out.println("2) Display longest stored message");
+                    System.out.println("3) Search stored message by ID");
+                    System.out.println("4) Search messages by recipient");
+                    System.out.println("5) Delete stored message by hash");
+                    System.out.println("6) Display message report");
+                    System.out.println("7) Return to main menu");
+
+                    System.out.print("Choose an option: ");
+
+                    String storedOption = input.nextLine();
+
+                    if (storedOption.equals("1")) {
 
                         messageManager.displayStoredMessages();
 
-                    }else if (option.equals("4")) {
+                    } else if (storedOption.equals("2")) {
 
-                                running = false;
+                        messageManager.displayLongestStoredMessage();
 
-                            System.out.println(
-                                            "Thank you for using TalkApp!");
+                    } else if (storedOption.equals("3")) {
 
-                    }else {
+                        System.out.print("Enter message ID: ");
+                        String searchID = input.nextLine();
 
                         System.out.println(
-                                "Invalid option. Please select 1, 2, 3 or 4.");
-                    }
+                        messageManager.searchStoredMessageByID(searchID));
+
+                    } else if (storedOption.equals("4")) {
+
+                    System.out.print("Enter recipient number: ");
+                        String recipient = input.nextLine();
+
+                    System.out.println(
+                        messageManager.searchMessagesByRecipient(recipient));
+
+                    } else if (storedOption.equals("5")) {
+
+                    System.out.print("Enter message hash: ");
+                    String searchHash = input.nextLine();
+
+                    System.out.println(
+                        messageManager.deleteStoredMessage(searchHash));
+
+                    } else if (storedOption.equals("6")) {
+
+                    System.out.println(
+                        messageManager.displayMessageReport());
+
+                    } else if (storedOption.equals("7")) {
+
+                    storedMenuRunning = false;
+
+                    } else {
+
+                    System.out.println("Invalid option. Please try again.");
+        }
+    }
+}
                 }
             }
         }
