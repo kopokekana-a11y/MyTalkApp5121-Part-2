@@ -270,6 +270,52 @@ public void displayStoredMessages() {
         System.out.println(getLongestStoredMessage());
     }
     
+    // Finds and returns the longest message across all categories
+public String getLongestMessage() {
+
+    Message longestMessage = null;
+
+    // Check sent messages
+    for (int i = 0; i < sentCount; i++) {
+        if (longestMessage == null
+                || sentMessages[i].getMessage().length()
+                > longestMessage.getMessage().length()) {
+            longestMessage = sentMessages[i];
+        }
+    }
+
+    // Check stored messages
+    for (int i = 0; i < storedCount; i++) {
+        if (longestMessage == null
+                || storedMessages[i].getMessage().length()
+                > longestMessage.getMessage().length()) {
+            longestMessage = storedMessages[i];
+        }
+    }
+
+    // Check disregarded messages
+    for (int i = 0; i < disregardedCount; i++) {
+        if (longestMessage == null
+                || disregardedMessages[i].getMessage().length()
+                > longestMessage.getMessage().length()) {
+            longestMessage = disregardedMessages[i];
+        }
+    }
+
+    if (longestMessage == null) {
+        return "No messages available.";
+    }
+
+    return longestMessage.getMessage();
+}
+
+// Displays the longest message
+public void displayLongestMessage() {
+
+    System.out.println("\n--- LONGEST MESSAGE ---");
+    System.out.println(getLongestMessage());
+}
+    
     
     // Searches for a stored message using its message ID
     public String searchStoredMessageByID(String searchID) {
