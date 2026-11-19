@@ -14,6 +14,15 @@ public class TalkApp {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
+        
+        
+        MessageManager messageManager = new MessageManager(5);
+
+        int loadedMessages = messageManager.loadStoredMessagesFromJSON();
+
+        System.out.println(loadedMessages + " stored messages loaded.");
+        
+        
 
         System.out.print("Enter username: ");
         String username = input.nextLine();
