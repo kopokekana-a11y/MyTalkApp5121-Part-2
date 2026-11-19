@@ -9,6 +9,7 @@ import com.google.gson.Gson;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Arrays;
 
 
 /**
@@ -59,6 +60,8 @@ public class MessageManager {
                 || idCount >= messageIDs.length) {
             return false;
         }
+        
+        ensureCapacity();
 
         addMessageDetails(message);
         sentMessages[sentCount] = message;
@@ -75,6 +78,8 @@ public class MessageManager {
                 || idCount >= messageIDs.length) {
             return false;
         }
+        
+        ensureCapacity();
 
         addMessageDetails(message);
         disregardedMessages[disregardedCount] = message;
@@ -91,6 +96,8 @@ public class MessageManager {
                 || idCount >= messageIDs.length) {
             return false;
         }
+        
+        ensureCapacity();
 
         addMessageDetails(message);
         storedMessages[storedCount] = message;
@@ -421,4 +428,24 @@ public class MessageManager {
 
         return loadedCount;
     }
+    
+    private void ensureCapacity() {
+
+    if (hashCount >= messageHashes.length) {
+
+        int newCapacity = messageHashes.length == 0
+                ? 1 : messageHashes.length * 2;
+
+        sentMessages = Arrays.copyOf(sentMessages, newCapacity);
+        disregardedMessages = Arrays.copyOf(
+                disregardedMessages, newCapacity);
+        storedMessages = Arrays.copyOf(
+                storedMessages, newCapacity);
+
+        messageHashes = Arrays.copyOf(
+                messageHashes, newCapacity);
+        messageIDs = Arrays.copyOf(
+                messageIDs, newCapacity);
+    }
+}
 }

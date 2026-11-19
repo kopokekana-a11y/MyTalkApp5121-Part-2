@@ -187,7 +187,7 @@ public class TalkApp {
                         running = false;
 
                         System.out.println(
-                                "Thank you for using QuickChat!");
+                                "Thank you for using TalkApp!");
 
                     } else {
 
