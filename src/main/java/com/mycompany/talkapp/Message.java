@@ -112,6 +112,7 @@ public class Message {
                     + "\"messageHash\":\"" + escapeJson(
                         messageHash == null ? "" : messageHash) + "\","
                     + "\"recipient\":\"" + escapeJson(recipient) + "\","
+                    + "\"sender\":\"" + escapeJson(sender == null ? "" : sender) + "\","
                     + "\"message\":\"" + escapeJson(message) + "\""
                     + "}\n");
 
