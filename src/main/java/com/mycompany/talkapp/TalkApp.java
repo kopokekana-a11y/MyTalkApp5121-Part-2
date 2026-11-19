@@ -158,6 +158,8 @@ public class TalkApp {
 
                                 totalMessagesSent++;
                                 newMessage.createMessageHash();
+                                
+                                messageManager.addSentMessage(newMessage);
 
                                 System.out.println(
                                         "Message successfully sent.");
@@ -165,6 +167,8 @@ public class TalkApp {
                                         newMessage.printMessages());
 
                             } else if (action.equals("2")) {
+                                
+                                messageManager.addDisregardedMessage(newMessage);
 
                                 System.out.println(
                                         "Message discarded.");
@@ -173,9 +177,13 @@ public class TalkApp {
 
                                 newMessage.createMessageHash();
 
-                                System.out.println(
-                                        newMessage.storeMessage());
+                                String storageResult = newMessage.storeMessage();
 
+                                System.out.println(storageResult);
+
+                                if (storageResult.equals("Message successfully stored.")) {
+                                                messageManager.addStoredMessage(newMessage);
+                                }
                             } else {
 
                                 System.out.println(
