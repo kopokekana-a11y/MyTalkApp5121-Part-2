@@ -71,8 +71,8 @@ public class TalkApp {
 
                     System.out.println("\n1) Send Messages");
                     System.out.println("2) Show recently sent messages");
-                    System.out.println("3) Quit");
-                    System.out.print("Choose an option: ");
+                    System.out.println("3) Stored Messages");
+                    System.out.print("4) Quit");
 
                     String option = input.nextLine();
 
@@ -203,15 +203,21 @@ public class TalkApp {
 
                     } else if (option.equals("3")) {
 
-                        running = false;
+                       System.out.println("\n--- STORED MESSAGES ---");
+
+                        messageManager.displayStoredMessages();
+
+                    }else if (option.equals("4")) {
+
+                                running = false;
+
+                            System.out.println(
+                                            "Thank you for using TalkApp!");
+
+                    }else {
 
                         System.out.println(
-                                "Thank you for using TalkApp!");
-
-                    } else {
-
-                        System.out.println(
-                                "Invalid option. Please select 1, 2, or 3.");
+                                "Invalid option. Please select 1, 2, 3 or 4.");
                     }
                 }
             }
