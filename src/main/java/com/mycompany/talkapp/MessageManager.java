@@ -190,20 +190,35 @@ public class MessageManager {
     }
 
     // Displays all stored messages
-    public void displayStoredMessages() {
+public void displayStoredMessages() {
 
-        System.out.println("\n--- STORED MESSAGES ---");
+    System.out.println("\n--- STORED MESSAGES ---");
 
-        if (storedCount == 0) {
-            System.out.println("No stored messages available.");
-            return;
-        }
-
-        for (int i = 0; i < storedCount; i++) {
-            System.out.println(storedMessages[i].printMessages());
-            System.out.println("----------------------");
-        }
+    if (storedCount == 0) {
+        System.out.println("No stored messages available.");
+        return;
     }
+
+    for (int i = 0; i < storedCount; i++) {
+
+        Message message = storedMessages[i];
+
+        System.out.println("Message ID: " + message.getMessageID());
+        System.out.println("Message Hash: " + message.getMessageHash());
+
+        String sender = message.getSender();
+
+        if (sender == null || sender.isEmpty()) {
+            sender = "Sender information unavailable";
+        }
+
+        System.out.println("Sender: " + sender);
+        System.out.println("Recipient: " + message.getRecipient());
+        System.out.println("Message: " + message.getMessage());
+
+        System.out.println("----------------------");
+    }
+}
 
     // Displays all disregarded messages
     public void displayDisregardedMessages() {
