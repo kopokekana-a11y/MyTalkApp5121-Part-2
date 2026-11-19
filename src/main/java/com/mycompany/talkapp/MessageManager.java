@@ -292,37 +292,38 @@ public void displayStoredMessages() {
     
     
     // Searches sent and stored messages by recipient number
-    public String searchMessagesByRecipient(String recipient) {
+public String searchMessagesByRecipient(String recipient) {
 
-        String results = "";
-        boolean found = false;
+    String results = "";
+    boolean found = false;
 
-        // Search through sent messages
-        for (int i = 0; i < sentCount; i++) {
+    // Search through sent messages
+    for (int i = 0; i < sentCount; i++) {
 
-            if (sentMessages[i].getRecipient().equals(recipient)) {
+        if (sentMessages[i].getRecipient().equals(recipient)) {
 
-                results += sentMessages[i].printMessages() + "\n";
-                found = true;
-            }
+            results += sentMessages[i].printMessages() + "\n";
+            found = true;
         }
-
-        // Search through stored messages
-        for (int i = 0; i < storedCount; i++) {
-
-            if (storedMessages[i].getRecipient().equals(recipient)) {
-
-                results += storedMessages[i].printMessages() + "\n";
-                found = true;
-            }
-        }
-
-        if (!found) {
-            return "No messages found for recipient: " + recipient;
-        }
-
-        return results;
     }
+
+    // Search through stored messages
+    for (int i = 0; i < storedCount; i++) {
+
+        if (storedMessages[i].getRecipient().equals(recipient)) {
+
+            results += storedMessages[i].printMessages() + "\n";
+            found = true;
+        }
+    }
+
+    // Check whether any messages were found
+    if (!found) {
+        return "No messages found for recipient: " + recipient;
+    }
+
+    return results;
+}
     
         // Deletes a stored message using its message hash
     public String deleteStoredMessage(String searchHash) {

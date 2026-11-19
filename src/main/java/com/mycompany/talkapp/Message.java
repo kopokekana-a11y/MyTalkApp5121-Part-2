@@ -31,6 +31,14 @@ public class Message {
         this.sender = sender;
     }
     
+    public Message(String messageID, int numMessagesSent,
+               String recipient, String message) {
+    this.messageID = messageID;
+    this.numMessagesSent = numMessagesSent;
+    this.recipient = recipient;
+    this.message = message;
+}
+    
     // Check that the message ID is no more than 10 characters
     public boolean checkMessageID() {
         return messageID != null && messageID.length() <= 10;
