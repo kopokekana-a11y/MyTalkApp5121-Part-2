@@ -124,7 +124,8 @@ public class TalkApp {
                                     messageID,
                                     totalMessagesSent + 1,
                                     recipient,
-                                    messageText);
+                                    messageText,
+                                    cellPhoneNumber);
 
                             if (!newMessage.checkMessageID()) {
                                 System.out.println(

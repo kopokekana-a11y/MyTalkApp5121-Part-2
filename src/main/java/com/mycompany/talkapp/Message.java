@@ -19,14 +19,16 @@ public class Message {
     private String recipient;
     private String message;
     private String messageHash;
+    private String sender;
 
     // Constructor
     public Message(String messageID, int numMessagesSent,
-                   String recipient, String message) {
+                   String recipient, String message, String sender) {
         this.messageID = messageID;
         this.numMessagesSent = numMessagesSent;
         this.recipient = recipient;
         this.message = message;
+        this.sender = sender;
     }
     
     // Check that the message ID is no more than 10 characters
@@ -163,5 +165,9 @@ public class Message {
     public String getMessage() {
         return message;
     }
+    
+    public String getSender() {
+    return sender;
+}
 
 }
