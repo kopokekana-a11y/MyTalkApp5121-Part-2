@@ -73,6 +73,8 @@ public class TalkApp {
                     System.out.println("2) Show recently sent messages");
                     System.out.println("3) Stored Messages");
                     System.out.print("4) Quit");
+                    
+                    System.out.print("Choose an option: ");
 
                     String option = input.nextLine();
 
