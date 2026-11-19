@@ -72,7 +72,7 @@ public class TalkApp {
                     System.out.println("\n1) Send Messages");
                     System.out.println("2) Show recently sent messages");
                     System.out.println("3) Stored Messages");
-                    System.out.print("4) Quit");
+                    System.out.println("4) Quit");
                     
                     System.out.print("Choose an option: ");
 
@@ -200,13 +200,15 @@ public class TalkApp {
 
                     } else if (option.equals("2")) {
 
-                        System.out.println("\\n--- SENT MESSAGES ---");
+                        System.out.println("\n--- SENT MESSAGES ---");
                         
                          messageManager.displaySentMessages();
 
                     }  else if (option.equals("3")) {
 
                         boolean storedMenuRunning = true;
+                        
+                                          
 
                         while (storedMenuRunning) {
 
@@ -218,6 +220,7 @@ public class TalkApp {
                     System.out.println("5) Delete stored message by hash");
                     System.out.println("6) Display message report");
                     System.out.println("7) Return to main menu");
+                    System.out.println("8) Return to main menu");
 
                     System.out.print("Choose an option: ");
 
@@ -262,18 +265,25 @@ public class TalkApp {
 
                     } else if (storedOption.equals("7")) {
 
-                    storedMenuRunning = false;
+                        messageManager.displayLongestMessage();
 
-                    } else {
+                    } else if (storedOption.equals("8")) {
 
-                    System.out.println("Invalid option. Please try again.");
-        }
+                        storedMenuRunning = false; 
     }
 }
+                } else if (option.equals("4")) {
+
+                    running = false;
+                System.out.println("Thank you for using TalkApp.");
+
+                } else {
+
+                System.out.println("Invalid option. Please try again.");
                 }
             }
         }
-
         input.close();
+    }
     }
 }
